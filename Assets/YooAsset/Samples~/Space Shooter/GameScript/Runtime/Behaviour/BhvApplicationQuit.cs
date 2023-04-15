@@ -10,6 +10,6 @@ public class BhvApplicationQuit : MonoBehaviour
 	}
 	private void OnApplicationQuit()
 	{
-		YooAssets.Destroy();		//TODO wht real 是不是要调一下
+		YooAssets.Destroy();
 	}
 }

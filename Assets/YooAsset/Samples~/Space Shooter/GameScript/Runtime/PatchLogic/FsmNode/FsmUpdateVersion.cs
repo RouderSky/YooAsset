@@ -32,7 +32,6 @@ internal class FsmUpdateVersion : IStateNode
 	{
 		yield return new WaitForSecondsRealtime(0.5f);
 
-		//TODO wht real 以下代码全拿
 		var package = YooAssets.GetAssetsPackage("DefaultPackage");
 		var operation = package.UpdatePackageVersionAsync();
 		yield return operation;
@@ -45,23 +44,7 @@ internal class FsmUpdateVersion : IStateNode
 		else
 		{
 			Debug.LogWarning(operation.Error);
-
-			// 如果获取远端资源版本失败，说明当前网络无连接。
-			// 在正常开始游戏之前，需要验证本地清单内容的完整性。
-			string packageVersion = package.GetPackageVersion();
-			var operation2 = package.CheckPackageContentsAsync(packageVersion);
-			yield return operation2;
-			if (operation2.Status == EOperationStatus.Succeed)
-			{
-				//  TODO wht real 可开始游戏
-			}
-			else
-			{
-				// TODO wht real资源内容本地并不完整，需要提示玩家联网更新。
-			}
-
-			//TODO wht real 重试
-			PatchEventDefine.PackageVersionUpdateFailed.SendEventMessage();		//TODO wht real 不要
+			PatchEventDefine.PackageVersionUpdateFailed.SendEventMessage();
 		}
 	}
 }

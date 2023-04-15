@@ -32,7 +32,6 @@ public class FsmCreateDownloader : IStateNode
 	{
 		yield return new WaitForSecondsRealtime(0.5f);
 
-		//TODO wht real 以下代码全拿
 		int downloadingMaxNum = 10;
 		int failedTryAgain = 3;
 		var downloader = YooAssets.CreatePatchDownloader(downloadingMaxNum, failedTryAgain);
@@ -52,7 +51,7 @@ public class FsmCreateDownloader : IStateNode
 			// 注意：开发者需要在下载前检测磁盘空间不足
 			int totalDownloadCount = downloader.TotalDownloadCount;
 			long totalDownloadBytes = downloader.TotalDownloadBytes;
-			PatchEventDefine.FoundUpdateFiles.SendEventMessage(totalDownloadCount, totalDownloadBytes);		//TODO wht real 不要
+			PatchEventDefine.FoundUpdateFiles.SendEventMessage(totalDownloadCount, totalDownloadBytes);
 		}
 	}
 }

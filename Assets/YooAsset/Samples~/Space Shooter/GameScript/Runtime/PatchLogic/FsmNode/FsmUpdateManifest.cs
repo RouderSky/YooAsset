@@ -32,7 +32,6 @@ public class FsmUpdateManifest : IStateNode
 	{
 		yield return new WaitForSecondsRealtime(0.5f);
 
-		//TODO wht real 以下代码全拿
 		var package = YooAssets.GetAssetsPackage("DefaultPackage");
 		var operation = package.UpdatePackageManifestAsync(PatchManager.Instance.PackageVersion);
 		yield return operation;
@@ -44,8 +43,7 @@ public class FsmUpdateManifest : IStateNode
 		else
 		{
 			Debug.LogWarning(operation.Error);
-			//TODO wht real 重试
-			PatchEventDefine.PatchManifestUpdateFailed.SendEventMessage();		//TODO wht real 不要
+			PatchEventDefine.PatchManifestUpdateFailed.SendEventMessage();
 		}
 	}
 }

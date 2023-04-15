@@ -31,8 +31,6 @@ public class FsmDownloadFiles : IStateNode
 	{
 		var downloader = PatchManager.Instance.Downloader;
 
-		//TODO wht real 以下代码全拿
-
 		// 注册下载回调
 		downloader.OnDownloadErrorCallback = PatchEventDefine.WebFileDownloadFailed.SendEventMessage;
 		downloader.OnDownloadProgressCallback = PatchEventDefine.DownloadProgressUpdate.SendEventMessage;
@@ -45,7 +43,6 @@ public class FsmDownloadFiles : IStateNode
 		if (downloader.Status == EOperationStatus.Succeed)
 		{
 			_machine.ChangeState<FsmPatchDone>();
-			//TODO wht real 可以开始游戏
 		}
 		else
 		{

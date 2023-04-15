@@ -38,6 +38,11 @@ namespace YooAsset
 			}
 		}
 
+		public void RemoveAllCompleteCB()
+        {
+			_callback = null;
+		}
+
 		/// <summary>
 		/// 等待异步执行完毕
 		/// </summary>
