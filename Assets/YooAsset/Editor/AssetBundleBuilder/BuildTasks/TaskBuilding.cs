@@ -28,7 +28,10 @@ namespace YooAsset.Editor
 			// 开始构建
 			string pipelineOutputDirectory = buildParametersContext.GetPipelineOutputDirectory();
 			BuildAssetBundleOptions buildOptions = buildParametersContext.GetPipelineBuildOptions();
+			// FMODUnity.EventManager.CopyToStreamingAssets(buildParametersContext.Parameters.BuildTarget);
 			AssetBundleManifest buildResults = BuildPipeline.BuildAssetBundles(pipelineOutputDirectory, buildMapContext.GetPipelineBuilds(), buildOptions, buildParametersContext.Parameters.BuildTarget);
+			// FMODUnity.EventManager.UpdateBankStubAssets(buildParametersContext.Parameters.BuildTarget);
+
 			if (buildResults == null)
 			{
 				throw new Exception("构建过程中发生错误！");

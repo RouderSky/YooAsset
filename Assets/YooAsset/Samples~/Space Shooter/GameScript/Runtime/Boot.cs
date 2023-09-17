@@ -13,8 +13,6 @@ public class Boot : MonoBehaviour
 	void Awake()
 	{
 		Debug.Log($"资源系统运行模式：{PlayMode}");
-		Application.targetFrameRate = 60;
-		Application.runInBackground = true;    //TODO wht real 加入框架
 	}
 	void Start()
 	{

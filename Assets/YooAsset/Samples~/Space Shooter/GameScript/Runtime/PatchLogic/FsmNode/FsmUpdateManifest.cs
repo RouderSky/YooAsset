@@ -32,7 +32,7 @@ public class FsmUpdateManifest : IStateNode
 	{
 		yield return new WaitForSecondsRealtime(0.5f);
 
-		//TODO wht real 以下代码全拿
+		//wht note 以下代码全拿
 		var package = YooAssets.GetPackage("DefaultPackage");
 		var operation = package.UpdatePackageManifestAsync(PatchManager.Instance.PackageVersion);
 		yield return operation;
